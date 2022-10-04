@@ -34,6 +34,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#time");
   let iconElement = document.querySelector("#icon");
 
+  cTemp = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -57,6 +58,26 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+
+function showFtemp(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#temperature");
+  let fTemp = (cTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fTemp);
+}
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(cTemp);
+}
+
+let cTemp = null;
 let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
+let convertElement = document.querySelector("#convert");
+convertElement.addEventListener("click", showFtemp);
 search("Nairobi");
+let celciusElement = document.querySelector("#celcius");
+celciusElement.addEventListener("click", displayCelcius);
