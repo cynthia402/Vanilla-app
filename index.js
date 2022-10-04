@@ -45,11 +45,18 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  getForecast(response.data.coord);
 }
-
-let apiKey = "743bee57fddbfaf52447193a87d5dd25";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-console.log(apiUrl);
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "743bee57fddbfaf52447193a87d5dd25";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+let form = document.querySelector("#form");
+form.addEventListener("submit", handleSubmit);
+search("Nairobi");
