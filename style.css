@@ -15,6 +15,10 @@ body {
   border: 1px solid black;
   border-radius: 5px;
 }
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -25,4 +29,23 @@ li {
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+}
+.location {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+}
+.weather-temperature strong {
+  color: black;
+  font-weight: 400px;
+  font-size: 64px;
+  line-height: 1;
+}
+.weather-temperature.degrees {
+  position: relative;
+  font-size: 16px;
+  top: -30;
 }
