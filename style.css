@@ -17,7 +17,7 @@ body {
 }
 .wrapper {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 30 px auto;
 }
 ul {
   margin: 0;
@@ -25,10 +25,12 @@ ul {
 }
 li {
   list-style: none;
-  color: black;
+  color: (135, 135, 135);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+}
+li:first-letter {
   text-transform: capitalize;
 }
 .location {
